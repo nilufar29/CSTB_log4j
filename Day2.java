@@ -70,8 +70,8 @@ public class Day2 {
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 		Actions action = new Actions(driver);
 
-		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQB® Partner Program')]"))).perform();
-		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQB® Partner Program Guidelines')]")).click();
+		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQBÂ® Partner Program')]"))).perform();
+		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQBÂ® Partner Program Guidelines')]")).click();
 
 		expected = "https://cstb.ca/istqb-partner-program-guidelines";
 		actual = driver.getCurrentUrl();
@@ -84,7 +84,7 @@ public class Day2 {
 	public void verifyTrainingProvidersTab() {
 
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//a[contains(text(), 'ISTQB® Training Providers')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'ISTQBÂ® Training Providers')]")).click();
 
 		expected = "https://cstb.ca/accredited-training";
 		actual = driver.getCurrentUrl();
@@ -115,9 +115,9 @@ public class Day2 {
 
 		Actions action = new Actions(driver);
 
-		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQB® Partner Program')]"))).perform();
+		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQBÂ® Partner Program')]"))).perform();
 
-		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQB® Partner Program Guidelines')]")).click();
+		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQBÂ® Partner Program Guidelines')]")).click();
 
 		//checking all the steps to become partner:
 
@@ -141,7 +141,7 @@ public class Day2 {
 		log.info("------------------------------------------");
 
 		List<WebElement> progRules = driver.findElements(By.xpath("//p[contains(a, 'how the program works')]/following-sibling::ul//li"));
-
+		// we should better check progRules is available or not then inside that if we should use for. let's try that.
 		for(int i = 0; i < progRules.size(); i++) {
 
 			log.info(progRules.get(i).getText());
@@ -158,14 +158,14 @@ public class Day2 {
 
 		Actions action = new Actions(driver);
 
-		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQB® Partner Program')]"))).perform();
+		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQBÂ® Partner Program')]"))).perform();
 
-		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQB® Partner Program Guidelines')]")).click();
+		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQBÂ® Partner Program Guidelines')]")).click();
 
 		List<WebElement> progRulesLinks = driver.findElements(By.xpath("//p[contains(a, 'how the program works')]/following-sibling::ul//li//a"));
 
 		for(int i = 0; i < progRulesLinks.size(); i++) {
-
+			// again define variable before for loop
 			String[] givenUrl = progRulesLinks.get(i).getAttribute("href").split("/");
 
 			progRulesLinks.get(i).click();
@@ -212,11 +212,11 @@ public class Day2 {
 
 		Actions action = new Actions(driver);
 
-		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQB® Partner Program')]"))).perform();
+		action.moveToElement(driver.findElement(By.xpath("//li[contains(@id, 'menu-item')]//a[contains(text(), 'ISTQBÂ® Partner Program')]"))).perform();
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  
 
-		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQB® Partners in Canada')]")).click();
+		driver.findElement(By.xpath("//ul[@class = 'sub-menu']//a[contains(text(), 'ISTQBÂ® Partners in Canada')]")).click();
 
 		String global = driver.findElement(By.xpath("//h2[contains(text(), 'Global')]//following-sibling::p[1]//a")).getAttribute("href");
 
@@ -232,7 +232,7 @@ public class Day2 {
 		
     	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		driver.findElement(By.xpath("//a[contains(text(), 'ISTQB® Training Providers')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(), 'ISTQBÂ® Training Providers')]")).click();
 	    
 		log.info("Checking Training Providers List: ");
 		
